@@ -40,10 +40,10 @@ def extract_mask(img, annotation_path, save_path, mask_name):
 
 
 if __name__ == "__main__":
-    img = Image.open("./data/just_cat.jpeg")
-    annotation_path = "./data/pred_annotation.json"
-    save_path = "./data/"
-    mask_name = "pred_mask"
+    img = Image.open("./data/images/just_cat.jpeg")
+    annotation_path = "./data/annotations/gt_annotation.json"
+    save_path = "./data/images/"
+    mask_name = "gt_mask"
     extract_mask(img, annotation_path, save_path, mask_name)
 
 

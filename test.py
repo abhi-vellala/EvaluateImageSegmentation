@@ -2,9 +2,9 @@ from evaluate import EvaluateImageSegmentation
 from PIL import Image
 import numpy as np
 
-img = Image.open("./data/just_cat.jpeg")
-gt_mask = np.array(Image.open("./data/gt_mask.png"))
-pred_mask = np.array(Image.open("./data/pred_mask.png"))
+img = Image.open("./data/images/just_cat.jpeg")
+gt_mask = np.array(Image.open("./data/images/gt_mask.png"))
+pred_mask = np.array(Image.open("./data/images/pred_mask.png"))
 
 evaluate = EvaluateImageSegmentation(gt_mask, pred_mask)
 

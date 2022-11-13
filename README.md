@@ -18,7 +18,7 @@ The number of pixels that are predicted correctly as empty mask with respect to 
 
 Here are the images to illustrate the above definitions with a 3 x 3 image:
 
-![img.png](img.png)
+![img.png](./data/truth_comparison.png)
 
 ---
 
@@ -32,8 +32,27 @@ The `evaluate.py` file has the class `EvaluateImageSegmentation` with the method
 
 Please note that the f1score and dice score are same. Either one works.
 
+A test to check these metrics can be found in  `test.py` script. The testing is done by taking an image and annotating the ground truth and a prediction mask for cat. 
 
+![img2.png](./data/cat_overlay.png)
 
+Here are the evaluation metrics:
+
+```
+Accuracy: 0.9343
+Precision: 0.9718
+Recall: 0.7469
+F1 Score: 0.8446
+Dice: 0.8446
+
+Confusion Matrix: 
+predicted      False    True
+ground truth                
+False         855684    5874
+True           68492  202150
+```
+
+Note that the Accuracy, precision seems to be high and could be misleading that predictions are better. However, dice score computes the harmonic mean of precision and recall and provide a better understanding of the predicted segmentation.
 
 
 
