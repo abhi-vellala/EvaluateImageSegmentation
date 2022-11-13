@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+from IPython.display import display
 
 
 class EvaluateImageSegmentation:
@@ -29,4 +31,8 @@ class EvaluateImageSegmentation:
 	def dice(self):
 		return 2*np.sum(self.true_positive)/(2*np.sum(self.true_positive)+np.sum(self.false_positive)+np.sum(self.false_negative))
 
-		
+	def get_confusion_matrix(self):
+		gt_series = pd.Series(self.groundtruth_mask.flatten(), name="ground truth")
+		pred_series = pd.Series(self.predicted_mask.flatten(), name="predicted")
+		df_confusion = pd.crosstab(gt_series, pred_series)
+		display(df_confusion)

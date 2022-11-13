@@ -27,9 +27,10 @@ def extract_mask(img, annotation_path, save_path, mask_name):
     arr = np.array(mask_points["image"])
     cv2.fillPoly(mask, [arr], color=(255))
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(12,8))
     ax.imshow(img, cmap='gray')
     ax.imshow(mask, cmap='copper', alpha=0.5)
+    plt.axis('off')
     fig.savefig(f"{save_path}/{mask_name}_overlay.png")
     plt.close()
 
@@ -40,9 +41,9 @@ def extract_mask(img, annotation_path, save_path, mask_name):
 
 if __name__ == "__main__":
     img = Image.open("./data/just_cat.jpeg")
-    annotation_path = "./data/gt_annotation.json"
+    annotation_path = "./data/pred_annotation.json"
     save_path = "./data/"
-    mask_name = "gt_mask"
+    mask_name = "pred_mask"
     extract_mask(img, annotation_path, save_path, mask_name)
 
 
