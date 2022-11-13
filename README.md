@@ -18,7 +18,7 @@ The number of pixels that are predicted correctly as empty mask with respect to 
 
 Here are the images to illustrate the above definitions with a 3 x 3 image:
 
-![img.png](./data/truth_comparison.png)
+![img.png](./data/readme_images/truth_comparison.png)
 
 ---
 
@@ -34,7 +34,7 @@ Please note that the f1score and dice score are same. Either one works.
 
 A test to check these metrics can be found in  `test.py` script. The testing is done by taking an image and annotating the ground truth and a prediction mask for cat. 
 
-![img2.png](./data/cat_overlay.png)
+![img2.png](./data/readme_images/cat_overlay.png)
 
 Here are the evaluation metrics:
 
