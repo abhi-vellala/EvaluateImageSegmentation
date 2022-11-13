@@ -54,5 +54,5 @@ True           68492  202150
 
 Note that the Accuracy, precision seems to be high and could be misleading that predictions are better. However, dice score computes the harmonic mean of precision and recall and provide a better understanding of the predicted segmentation.
 
-
-
+**Complimentary:** <br/>
+Run `extractMasks.py` to extract binary masks from VGG annotated segmentations using VGG Image Annotator(VIA). For more information about VIA, visit: https://www.robots.ox.ac.uk/~vgg/software/via/
