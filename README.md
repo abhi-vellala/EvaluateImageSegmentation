@@ -27,8 +27,9 @@ The `evaluate.py` file has the class `EvaluateImageSegmentation` with the method
 `accuracy` <br/>
 `precision` <br/>
 `recall` <br/>
-`f1score` <br/>
 `dice` <br/>
+`IoU` <br/>
+`get_confusion_matrix` <br/>
 
 Please note that the f1score and dice score are same. Either one works.
 
@@ -44,6 +45,7 @@ Precision: 0.9718
 Recall: 0.7469
 F1 Score: 0.8446
 Dice: 0.8446
+Intersection over Union(IoU): 0.7311
 
 Confusion Matrix: 
 predicted      False    True

@@ -16,8 +16,7 @@ class EvaluateImageSegmentation:
 		self.true_negative = np.invert(self.union)
 
 	def accuracy(self):
-		return np.sum(self.true_positive+self.true_negative)/np.sum(self.true_positive+self.true_negative+
-																	self.false_negative+self.false_positive)
+		return np.sum(self.true_positive+self.true_negative)/np.sum(self.true_positive+self.true_negative+self.false_negative+self.false_positive)
 
 	def precision(self):
 		return np.sum(self.true_positive)/np.sum(self.true_positive+self.false_positive)
@@ -30,6 +29,9 @@ class EvaluateImageSegmentation:
 
 	def dice(self):
 		return 2*np.sum(self.true_positive)/(2*np.sum(self.true_positive)+np.sum(self.false_positive)+np.sum(self.false_negative))
+
+	def IoU(self):
+		return np.sum(self.intersection)/np.sum(self.union)
 
 	def get_confusion_matrix(self):
 		gt_series = pd.Series(self.groundtruth_mask.flatten(), name="ground truth")
