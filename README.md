@@ -29,6 +29,7 @@ The `evaluate.py` file has the class `EvaluateImageSegmentation` with the method
 `recall` <br/>
 `dice` <br/>
 `IoU` <br/>
+`hausdorff_distance` <br/>
 `get_confusion_matrix` <br/>
 
 Please note that the f1score and dice score are same. Either one works.
@@ -46,6 +47,7 @@ Recall: 0.7469
 F1 Score: 0.8446
 Dice: 0.8446
 Intersection over Union(IoU): 0.7311
+Hausdorff Distance: 10.0499
 
 Confusion Matrix: 
 predicted      False    True

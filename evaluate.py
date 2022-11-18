@@ -1,11 +1,13 @@
 import numpy as np
 import pandas as pd
 from IPython.display import display
-
+import distances
 
 class EvaluateImageSegmentation:
 
 	def __init__(self, groundtruth_mask, predicted_mask):
+		self.gt_mask = groundtruth_mask
+		self.pred_mask = predicted_mask
 		self.groundtruth_mask = groundtruth_mask.astype(bool)
 		self.predicted_mask = predicted_mask.astype(bool)
 		self.intersection = self.groundtruth_mask * self.predicted_mask
@@ -38,3 +40,22 @@ class EvaluateImageSegmentation:
 		pred_series = pd.Series(self.predicted_mask.flatten(), name="predicted")
 		df_confusion = pd.crosstab(gt_series, pred_series)
 		display(df_confusion)
+
+	def hausdorff_distance(self, distance='euclidean'):
+		n1 = self.gt_mask.shape[0]
+		n2 = self.pred_mask.shape[0]
+		cmax = 0
+		for i in range(n1):
+			cmin = np.inf
+			for j in range(n2):
+				dist = getattr(distances, distance)
+				dist_cal = dist(self.gt_mask[i,:], self.pred_mask[j,:])
+				# dist = np.sqrt(np.sum(np.square(self.gt_mask[i,:] - self.pred_mask[j,:])))
+				if dist_cal < cmin:
+					cmin = dist_cal
+				if cmin < cmax:
+					break
+			if cmin > cmax and np.inf > cmin:
+				cmax = cmin
+		return cmax
+
