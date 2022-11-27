@@ -1,7 +1,7 @@
 from evaluate import EvaluateImageSegmentation
 from PIL import Image
 import numpy as np
-
+# testing changes
 
 img = Image.open("./data/images/just_cat.jpeg")
 gt_mask = np.array(Image.open("./data/images/gt_mask.png"))
